@@ -2,7 +2,7 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '/<REPO>/',
+  base: '/healthsites/',
   root: 'src',
   css: {
     sourcemap: true,
@@ -13,8 +13,8 @@ export default defineConfig({
     devSourcemap: true,
     rollupOptions: {
 	  input: {
-        main: resolve(__dirname, 'index.html'),
-        contact: resolve(__dirname, 'contact.html'),
+        main: resolve(__dirname, 'src/index.html'),
+        map: resolve(__dirname, 'src/map/index.html'),
       },
       output: {
         entryFileNames: `js/[name].js`,
