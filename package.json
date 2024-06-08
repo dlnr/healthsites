@@ -1,7 +1,7 @@
 {
-  "name": "vase",
+  "name": "healthsites",
   "version": "0.0.1",
-  "description": "Vanilla Firebase Website Template",
+  "description": "Prototype for the Healthsites project",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dlnr/vase.git"
+    "url": "git+https://github.com/healthsites/healthsites.git"
   },
   "keywords": [
     "vanilla",
@@ -20,16 +20,11 @@
   ],
   "author": "dlnr",
   "license": "MPL-2.0",
-  "bugs": {
-    "url": "https://github.com/dlnr/vase/issues"
-  },
-  "homepage": "https://github.com/dlnr/vase#readme",
   "devDependencies": {
     "postcss-preset-env": "^9.5.11",
     "vite": "^5.2.11"
   },
   "dependencies": {
-    "firebase-admin": "^12.1.1",
     "postcss": "^8.4.38",
     "postcss-custom-media": "^10.0.6"
   }

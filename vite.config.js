@@ -22,7 +22,7 @@ export default defineConfig({
       }
     },
     outDir: '../public',
-  	// sourcemap: true,
+  	sourcemap: true,
     emptyOutDir: true,
   }
 })
