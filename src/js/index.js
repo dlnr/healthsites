@@ -18,6 +18,16 @@ nav.addEventListener('transitionend', e => {
   }
 })
 
+opennav.addEventListener('click', e => {
+  const isOpen = document.location.hash === '#nav-open'
+
+  if (isOpen) {
+    window.history.length
+      ? window.history.back()
+      : document.location.hash = ''
+  }
+})
+
 // close our menu when esc is pressed
 nav.addEventListener('keyup', e => {
   if (e.code === 'Escape')

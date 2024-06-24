@@ -14,22 +14,32 @@
 <body>
 	<div>
 		<header role="banner">
-			<a href="/">
+			<a href="./">
 				<picture>
-					<img src="../img/logo@2x.png" alt="">
+					<img src="./img/logo@2x.png" alt="">
 				</picture>
 				<span>healthsites.io</span>
 			</a>
-			<nav>
-				<a href="https://medium.com/healthsites-io" rel="nofollow noopener noreferrer external" target="_blank">Blog</a>
-				<a href="#about">About</a>
-				<a href="./map/" inert>Map</a>
-				<a href="#Country">Country data</a>
-				<a href="#How">How it works</a>
-				<a href="#Share">Share data</a>
-				<a href="#Partners">Partners</a>
-				<a href="https://www.gofundme.com/f/senegalese-health-facility-data-collaborative" rel="nofollow noopener noreferrer external" target="_blank">Donate</a>
-			</nav>
+			<div id="nav-open">
+				<nav>
+					<a href="https://medium.com/healthsites-io" rel="nofollow noopener noreferrer external" target="_blank">Blog</a>
+					<a href="#about">About</a>
+					<a href="./map/">Map</a>
+					<a href="#Country">Country data</a>
+					<a href="#How">How it works</a>
+					<a href="#Share">Share data</a>
+					<a href="#Partners">Partners</a>
+					<a href="https://www.gofundme.com/f/senegalese-health-facility-data-collaborative" rel="nofollow noopener noreferrer external" target="_blank">Donate</a>
+				</nav>
+				<a href="#" id="nav-close" title="Close Menu" aria-label="Close Menu" onchange="history.go(-1)"></a>
+			</div>
+			<a href="#nav-open" id="menu" aria-label="Open Menu" aria-expanded="false">
+				<svg viewBox="0 0 22 22" role="presentation" focusable="false">
+					<line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+					<line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+					<line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+				</svg>
+			</a>
 		</header>
 		<main>
 		</main>
