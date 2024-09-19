@@ -15,11 +15,16 @@
 
 	body {
 		margin: 0;
+		font-size: clamp(1rem, 2vw, 1.15rem);
 	}
 
 	h1,h2,h3,h4,h5 {
-		margin-block: 0;
+		margin-block: 0 1em;
 		padding-block: 0;
+	}
+
+	p {
+		margin-block: 0 2rem;
 	}
 
 	button,
@@ -108,7 +113,7 @@
 			text-decoration: none;
 			font-weight: 700;
 			color: var(--secondary);
-			text-decorationL: none;
+			text-decoration: none;
 
 			&:hover {
 				color: var(--brand)
@@ -151,6 +156,20 @@
 		color: var(--link-color);
 	}
 
+	footer[role="contentinfo"] {
+		--link-color: var(--light);
+		background-color: var(--brand);
+
+		ul {
+			list-style: none;
+			line-height: 150%;
+		}
+
+		a {
+			text-decoration: none;
+		}
+	}
+
 }
 
 @layer layout {
@@ -188,7 +207,7 @@
 		}
 	}
 
-	main {
+	main, footer {
 		display: grid;
 		grid-template-columns: subgrid;
 	}
@@ -342,7 +361,7 @@
 			flex: 0 0 100%;
 			flex-direction: column;
 			column-gap: var(--spacer-1);
-			align-items: center;
+			/* align-items: center; */
 			justify-content: flex-start;
 			padding-block: var(--spacer-4);
 			padding-inline: var(--spacer-3);
@@ -384,9 +403,19 @@
 		--link-color: var(--background);
 
 		color: var(--background);
-		padding-block: var(--spacer-3);
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacer-3);
+		padding-block: 3cqh;
 		padding-inline: 5cqw;
 		grid-column: span 4;
+
+		header,
+		footer {
+			display: flex;
+			flex-direction: column;
+			gap: var(--spacer-2);
+		}
 
 		svg {
 			width: auto;
@@ -399,6 +428,22 @@
 
 		@media screen and (min-width: 1024px) {
 			grid-column: span 3;
+		}
+	}
+
+	footer[role="contentinfo"] {
+		div {
+			padding-inline: var(--spacer-3);
+			grid-column: span 4;
+
+			@media screen and (min-width: 768px) {
+				grid-column: 3 / 11;
+
+				nav {
+					padding-block: var(--spacer-4);
+					column-count: 3;
+				}
+			}
 		}
 	}
 }
