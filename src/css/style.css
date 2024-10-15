@@ -185,6 +185,12 @@
 			grid-template-columns: repeat(4, 1fr);
 			column-gap: var(--spacer-3);
 
+			&.fs {
+				grid-template-rows: auto 1fr;
+				height: 100dvh;
+				width: 100dvw;
+			}
+
 			@media screen and (min-width: 768px) {
 				grid-template-columns: repeat(12, 1fr);
 			}
@@ -200,7 +206,7 @@
 		top: 0;
 	}
 
-	header, main, footer {
+	header, main, footer, #map {
 		grid-column: span 4;
 
 		@media screen and (min-width: 768px) {

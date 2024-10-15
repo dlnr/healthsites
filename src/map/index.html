@@ -9,14 +9,16 @@
     <meta name="description" content="🙂">
 	<meta name="view-transition" content="same-origin" />
 	<link rel="stylesheet" href="../css/style.css">
-	<script src="../js/index.js" type="module"></script>
+	<script src="/js/index.js" type="module"></script>
+	<link rel="stylesheet" href="/lib/leaflet/leaflet.css" />
+	<script src="/lib/leaflet/leaflet.js"></script>
 </head>
 <body>
-	<div>
+	<div class="fs">
 		<header role="banner">
 			<a href="./">
 				<picture>
-					<img src="./img/logo@2x.png" alt="">
+					<img src="/img/logo@2x.png" alt="">
 				</picture>
 				<span>healthsites.io</span>
 			</a>
@@ -27,8 +29,8 @@
 					<a href="./map/">Map</a>
 					<a href="#Country">Country data</a>
 					<a href="#How">How it works</a>
-					<a href="#Share">Share data</a>
-					<a href="#Partners">Partners</a>
+					<!-- <a href="#Share">Share data</a> -->
+					<!-- <a href="#Partners">Partners</a> -->
 					<a href="https://www.gofundme.com/f/senegalese-health-facility-data-collaborative" rel="nofollow noopener noreferrer external" target="_blank">Donate</a>
 				</nav>
 				<a href="#" id="nav-close" title="Close Menu" aria-label="Close Menu" onchange="history.go(-1)"></a>
@@ -42,9 +44,17 @@
 			</a>
 		</header>
 		<main>
+			<div id="map"></div>
+			<script>
+				const map = L.map('map').setView([50.4501, 30.5234], 4);
+				const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+					maxZoom: 19,
+					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+				}).addTo(map);
+				const marker = L.marker([50.4501, 30.5234], {alt: 'Kyiv'}).addTo(map)
+					.bindPopup('Kyiv, Ukraine is the birthplace of Leaflet!');
+			</script>
 		</main>
-		<footer>
-		</footer>
 	</div>
 </body>
 </html>
