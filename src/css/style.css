@@ -353,6 +353,16 @@
 		}
 	}
 
+	section#partners {
+		display: grid;
+		grid-template-columns: subgrid;
+		grid-column: span 4;
+
+		@media screen and (min-width: 768px) {
+			grid-column: span 12;
+		}
+	}
+
 	#about article {
 		display: flex;
 		flex-wrap: wrap;
@@ -435,6 +445,19 @@
 
 		@media screen and (min-width: 1024px) {
 			grid-column: span 3;
+		}
+	}
+
+	#partners article {
+		div {
+			list-style: none;
+			padding-block: 0;
+			padding-inline: 0;
+			display: grid;
+			scroll-behavior: smooth;
+			grid-auto-columns: 100%;
+			grid-auto-flow: column;
+			align-items: center;
 		}
 	}
 

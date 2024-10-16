@@ -12,7 +12,7 @@ export default defineConfig({
     cssMinify: false,
     devSourcemap: true,
     rollupOptions: {
-	  input: {
+      input: {
         main: resolve(__dirname, 'src/index.html'),
         map: resolve(__dirname, 'src/map/index.html'),
       },
