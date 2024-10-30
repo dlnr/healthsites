@@ -58,6 +58,9 @@
 		--background: var(--light);
 		--foreground: var(--dark);
 
+		--button-color: var(--light);
+		--button-background: var(--brand);
+
 		--link-color: hwb(212 16% 0%);
 	}
 
@@ -149,12 +152,47 @@
 		}
 
 		section[role="banner"] {
-			background-color: var(--brand)
+			--button-color: var(--brand);
+			--button-background: var(--light);
+
+			background-color: var(--brand);
+			color: var(--light);
+			font-size: 150%;
+			line-height: 1.6;
+			text-align: center;
+			text-wrap: pretty;
+
+			span {
+				display: inline;
+
+				&[contenteditable="true"] {
+					cursor: target-text;
+					text-decoration: underline;
+					text-decoration-style: dashed;
+					text-underline-offset: 8px;
+				}
+			}
 		}
 	}
 
 	a {
 		color: var(--link-color);
+	}
+
+	button {
+		color: var(--button-color);
+		background: var(--button-background);
+		border-radius: 8px;
+		font-size: 1.2rem;
+		padding-inline: .8em;
+		padding-block: .4em;
+		cursor: pointer;
+
+		&:hover,
+		&:focus {
+			background: color-mix(in hsl, var(--button-background) 30%, var(--secondary) 20%);
+			color: color-mix(in hsl, var(--button-color) 20%, var(--button-background) 90%);
+		}
 	}
 
 	footer[role="contentinfo"] {
@@ -243,7 +281,7 @@
 			&:target {
 				visibility: visible;
 				transform: translateY(0);
-				transition: 
+				transition:
 					transform .3s ease-in-out;
 			}
 		}
@@ -325,7 +363,7 @@
 	}
 
 	section[role="banner"] {
-		min-height: calc(100vh - 90px);
+		padding-inline: var(--spacer-3);
 		grid-column: span 4;
 
 		@media screen and (min-width: 768px) {
@@ -351,6 +389,24 @@
 		@media screen and (min-width: 768px) {
 			grid-column: span 12;
 		}
+	}
+
+	section#partners {
+		display: grid;
+		grid-template-columns: subgrid;
+		grid-column: span 4;
+
+		@media screen and (min-width: 768px) {
+			grid-column: span 12;
+		}
+	}
+
+	section[role="banner"] article {
+		display: grid;
+		grid-area: 1 / 1;
+		min-block-size: 30vh;
+		place-content: center;
+		gap: 1em;
 	}
 
 	#about article {
@@ -428,6 +484,35 @@
 			width: auto;
 			height: 2rem;
 		}
+
+		@media screen and (min-width: 768px) {
+			grid-column: span 6;
+		}
+
+		@media screen and (min-width: 1024px) {
+			grid-column: span 3;
+		}
+	}
+
+	#partners article {
+		display: flex;
+		flex-direction: column;
+		gap: var(--spacer-3);
+		padding-block: 3cqh;
+		padding-inline: 5cqw;
+		grid-column: span 4;
+
+		div {
+			list-style: none;
+			padding-block: 0;
+			padding-inline: 0;
+			display: grid;
+			scroll-behavior: smooth;
+			grid-auto-columns: 100%;
+			grid-auto-flow: column;
+			align-items: center;
+		}
+
 
 		@media screen and (min-width: 768px) {
 			grid-column: span 6;
