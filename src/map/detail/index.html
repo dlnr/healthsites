@@ -8,7 +8,7 @@
     <meta name="theme-color" content="Canvas">
     <meta name="description" content="🙂">
 	<meta name="view-transition" content="same-origin" />
-	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 	<script src="/js/index.js" type="module"></script>
 	<link rel="stylesheet" href="/lib/leaflet/leaflet.css" />
 	<script src="/lib/leaflet/leaflet.js"></script>
@@ -29,8 +29,6 @@
 					<a href="./map/">Map</a>
 					<a href="#Country">Country data</a>
 					<a href="#How">How it works</a>
-					<!-- <a href="#Share">Share data</a> -->
-					<!-- <a href="#Partners">Partners</a> -->
 					<a href="https://www.gofundme.com/f/senegalese-health-facility-data-collaborative" rel="nofollow noopener noreferrer external" target="_blank">Donate</a>
 				</nav>
 				<a href="#" id="nav-close" title="Close Menu" aria-label="Close Menu" onchange="history.go(-1)"></a>
@@ -45,6 +43,12 @@
 		</header>
 		<main>
 			<div id="map"></div>
+			<section id="detail">
+				<article>
+					<h1>Healthsites.io</h1>
+					<p>🙂</p>
+				</article>
+			</section>
 			<script>
 				const map = L.map('map').setView([50.4501, 30.5234], 4);
 				const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -52,9 +56,6 @@
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 				}).addTo(map);
 				const marker = L.marker([50.4501, 30.5234], {alt: 'Kyiv'}).addTo(map);
-				marker.addEventListener('click', () => {
-					window.location.href = './detail/';
-				});
 			</script>
 		</main>
 	</div>
