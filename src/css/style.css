@@ -423,7 +423,7 @@
 		gap: 1em;
 	}
 
-	.fs #map {
+	.fs.detail #map {
 		@media screen and (min-width: 768px) {
 			grid-column-start: 6;
 			grid-column-end: end;
