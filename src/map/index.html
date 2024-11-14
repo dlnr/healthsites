@@ -51,8 +51,10 @@
 					maxZoom: 19,
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 				}).addTo(map);
-				const marker = L.marker([50.4501, 30.5234], {alt: 'Kyiv'}).addTo(map)
-					.bindPopup('Kyiv, Ukraine is the birthplace of Leaflet!');
+				const marker = L.marker([50.4501, 30.5234], {alt: 'Kyiv'}).addTo(map);
+				marker.addEventListener('click', () => {
+					window.location.href = './detail/';
+				});
 			</script>
 		</main>
 	</div>
