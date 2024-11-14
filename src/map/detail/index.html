@@ -45,12 +45,28 @@
 			<div id="map"></div>
 			<section id="detail">
 				<article>
-					<h1>Healthsites.io</h1>
-					<p>🙂</p>
+					<h1>General Hospital</h1>
+					<address>
+						Main Street 300<br>
+						12345 City<br>
+					</address>
+					<dl>
+						<dt>Phone</dt>
+						<dd>+123 456 789</dd>
+						<dt>Website</dt>
+						<dd><a href="https://example.com" rel="nofollow noopener noreferrer external" target="_blank">example.com</a></dd>
+						<dt>Opening hours</dt>
+						<dd>Mo-Fr 8:00-18:00</dd>
+						<dt>Services</dt>
+						<dd>General medicine, surgery, pediatrics, gynecology, obstetrics, emergency</dd>
+						<dt>Specialities</dt>
+						<dd>Cardiology, dermatology, endocrinology, gastroenterology, hematology, immunology, nephrology, neurology, oncology, ophthalmology, orthopedics, otolaryngology, psychiatry, pulmonology, rheumatology, urology</dd>
+					</dl>
 				</article>
 			</section>
 			<script>
 				const map = L.map('map').setView([50.4501, 30.5234], 4);
+				map.setZoom(13);
 				const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 					maxZoom: 19,
 					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
