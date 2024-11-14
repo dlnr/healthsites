@@ -15,6 +15,7 @@ export default defineConfig({
 	  input: {
         main: resolve(__dirname, 'src/index.html'),
         map: resolve(__dirname, 'src/map/index.html'),
+        detail: resolve(__dirname, 'src/map/detail/index.html'),
       },
       output: {
         entryFileNames: `js/[name].js`,
