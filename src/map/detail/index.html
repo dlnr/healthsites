@@ -1,111 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<title>Healthsites.io</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="Canvas">
-    <meta name="description" content="🙂">
-	<meta name="view-transition" content="same-origin" />
-	<link rel="stylesheet" href="/css/style.css">
-	<script src="/js/index.js" type="module"></script>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-</head>
-<body>
-	<div class="fs detail">
-		<header role="banner">
-			<a href="/">
-				<picture>
-					<img src="/img/logo@2x.png" alt="">
-				</picture>
-				<span>healthsites.io</span>
-			</a>
-			<div id="nav-open">
-				<nav>
-					<a href="https://medium.com/healthsites-io" rel="nofollow noopener noreferrer external" target="_blank">Blog</a>
-					<a href="#about">About</a>
-					<a href="/healthsites/map/">Map</a>
-					<a href="#Country">Country data</a>
-					<a href="#How">How it works</a>
-					<a href="https://www.gofundme.com/f/senegalese-health-facility-data-collaborative" rel="nofollow noopener noreferrer external" target="_blank">Donate</a>
-				</nav>
-				<a href="#" id="nav-close" title="Close Menu" aria-label="Close Menu" onchange="history.go(-1)"></a>
-			</div>
-			<a href="#nav-open" id="menu" aria-label="Open Menu" aria-expanded="false">
-				<svg viewBox="0 0 22 22" role="presentation" focusable="false">
-					<line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
-					<line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
-					<line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
-				</svg>
-			</a>
-		</header>
-		<main>
-			<div id="map"></div>
-			<section id="detail">
-				<article>
-					<h1>General Hospital</h1>
-					<address>
-						Main Street 300<br>
-						12345 City<br>
-					</address>
-					<dl>
-						<dt>
-							<span class="visually-hidden">Phone</span>
-							<picture>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/></svg>
-							</picture>
-						</dt>
-						<dd>+123 456 789</dd>
-						<dt>
-							<span class="visually-hidden">Website</span>
-							<picture>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/></svg>
-							</picture>
-						</dt>
-						<dd><a href="#" rel="nofollow noopener noreferrer external" target="_blank">example.com</a></dd>
-						<dt>
-							<span class="visually-hidden">Opening hours</span>
-							<picture>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/></svg>
-							</picture>
-						</dt>
-						<dd>Mo-Fr 8:00-18:00</dd>
-						<dt>
-							<span class="visually-hidden">Services</span>
-							<picture>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/></svg>
-							</picture>
-						</dt>
-						<dd>General medicine, surgery, pediatrics, gynecology, obstetrics, emergency</dd>
-						<dt>
-							<span class="visually-hidden">Specialities</span>
-							<picture>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/></svg>
-							</picture>
-						</dt>
-						<dd>Cardiology, dermatology, endocrinology, gastroenterology, hematology, immunology, nephrology, neurology, oncology, ophthalmology, orthopedics, otolaryngology, psychiatry, pulmonology, rheumatology, urology</dd>
-						<dt>
-							<span class="visually-hidden">Progress</span>
-							<picture>
-								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"/></svg>
-							</picture>
-						</dt>
-						<dd><progress value="0.2"></progress></dd>
-					</dl>
-				</article>
-			</section>
-			<script>
-				const map = L.map('map').setView([50.4501, 30.5234], 4);
-				map.setZoom(13);
-				const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-					maxZoom: 19,
-					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-				}).addTo(map);
-				const marker = L.marker([50.4501, 30.5234], {alt: 'Kyiv'}).addTo(map);
-			</script>
-		</main>
-	</div>
-</body>
+  <head>
+    <title>Healthsites.io</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="Canvas" />
+    <meta name="description" content="🙂" />
+    <meta name="view-transition" content="same-origin" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="/js/index.js" type="module"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+      type="module"
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      type="module"
+    ></script>
+  </head>
+  <body>
+    <div class="fs detail">
+      <header role="banner">
+        <a href="/">
+          <picture>
+            <img src="/img/logo@2x.png" alt="" />
+          </picture>
+          <span>healthsites.io</span>
+        </a>
+        <div id="nav-open">
+          <nav>
+            <a
+              href="https://medium.com/healthsites-io"
+              rel="nofollow noopener noreferrer external"
+              target="_blank"
+              >Blog</a
+            >
+            <a href="#about">About</a>
+            <a href="/healthsites/map/">Map</a>
+            <a href="#Country">Country data</a>
+            <a href="#How">How it works</a>
+            <a
+              href="https://www.gofundme.com/f/senegalese-health-facility-data-collaborative"
+              rel="nofollow noopener noreferrer external"
+              target="_blank"
+              >Donate</a
+            >
+          </nav>
+          <a
+            href="#"
+            id="nav-close"
+            title="Close Menu"
+            aria-label="Close Menu"
+            onchange="history.go(-1)"
+          ></a>
+        </div>
+        <a
+          href="#nav-open"
+          id="menu"
+          aria-label="Open Menu"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 22 22" role="presentation" focusable="false">
+            <line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+            <line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+            <line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+          </svg>
+        </a>
+      </header>
+      <main>
+        <div id="map"></div>
+        <section id="detail">
+          <article>
+            <h1>General Hospital</h1>
+            <address>
+              Main Street 300<br />
+              12345 City<br />
+            </address>
+            <dl>
+              <dt>
+                <span class="visually-hidden">Phone</span>
+                <picture>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                      fill="currentColor"
+                      d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+                    />
+                  </svg>
+                </picture>
+              </dt>
+              <dd>+123 456 789</dd>
+              <dt>
+                <span class="visually-hidden">Website</span>
+                <picture>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                      fill="currentColor"
+                      d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+                    />
+                  </svg>
+                </picture>
+              </dt>
+              <dd>
+                <a
+                  href="#"
+                  rel="nofollow noopener noreferrer external"
+                  target="_blank"
+                  >example.com</a
+                >
+              </dd>
+              <dt>
+                <span class="visually-hidden">Opening hours</span>
+                <picture>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                      fill="currentColor"
+                      d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+                    />
+                  </svg>
+                </picture>
+              </dt>
+              <dd>Mo-Fr 8:00-18:00</dd>
+              <dt>
+                <span class="visually-hidden">Services</span>
+                <picture>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                      fill="currentColor"
+                      d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+                    />
+                  </svg>
+                </picture>
+              </dt>
+              <dd>
+                General medicine, surgery, pediatrics, gynecology, obstetrics,
+                emergency
+              </dd>
+              <dt>
+                <span class="visually-hidden">Specialities</span>
+                <picture>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                      fill="currentColor"
+                      d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+                    />
+                  </svg>
+                </picture>
+              </dt>
+              <dd>
+                Cardiology, dermatology, endocrinology, gastroenterology,
+                hematology, immunology, nephrology, neurology, oncology,
+                ophthalmology, orthopedics, otolaryngology, psychiatry,
+                pulmonology, rheumatology, urology
+              </dd>
+              <dt>
+                <span class="visually-hidden">Progress</span>
+                <picture>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                    <path
+                      fill="currentColor"
+                      d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
+                    />
+                  </svg>
+                </picture>
+              </dt>
+              <dd><progress value="0.2"></progress></dd>
+            </dl>
+          </article>
+        </section>
+        <script>
+          const map = L.map('map').setView([50.4501, 30.5234], 4)
+          map.setZoom(13)
+          const tiles = L.tileLayer(
+            'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+              maxZoom: 19,
+              attribution:
+                '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            }
+          ).addTo(map)
+          const marker = L.marker([50.4501, 30.5234], { alt: 'Kyiv' }).addTo(
+            map
+          )
+        </script>
+      </main>
+    </div>
+  </body>
 </html>

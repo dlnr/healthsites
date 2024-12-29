@@ -21,11 +21,9 @@
   "author": "dlnr",
   "license": "MPL-2.0",
   "devDependencies": {
-    "postcss-preset-env": "^9.5.11",
-    "vite": "^5.2.11"
-  },
-  "dependencies": {
-    "postcss": "^8.4.38",
-    "postcss-custom-media": "^10.0.6"
+    "postcss": "^8.4.49",
+    "postcss-custom-media": "^11.0.5",
+    "postcss-preset-env": "^9.6.0",
+    "vite": "^6.0.6"
   }
 }
