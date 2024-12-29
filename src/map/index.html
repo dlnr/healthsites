@@ -1,62 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<title>Healthsites.io</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="mobile-web-app-capable" content="yes">
-    <meta name="theme-color" content="Canvas">
-    <meta name="description" content="🙂">
-	<meta name="view-transition" content="same-origin" />
-	<link rel="stylesheet" href="../css/style.css">
-	<script src="/js/index.js" type="module"></script>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-</head>
-<body>
-	<div class="fs">
-		<header role="banner">
-			<a href="/">
-				<picture>
-					<img src="/img/logo@2x.png" alt="">
-				</picture>
-				<span>healthsites.io</span>
-			</a>
-			<div id="nav-open">
-				<nav>
-					<a href="https://medium.com/healthsites-io" rel="nofollow noopener noreferrer external" target="_blank">Blog</a>
-					<a href="#about">About</a>
-					<a href="/healthsites/map/" inert>Map</a>
-					<a href="#Country">Country data</a>
-					<a href="#How">How it works</a>
-					<!-- <a href="#Share">Share data</a> -->
-					<!-- <a href="#Partners">Partners</a> -->
-					<a href="https://www.gofundme.com/f/senegalese-health-facility-data-collaborative" rel="nofollow noopener noreferrer external" target="_blank">Donate</a>
-				</nav>
-				<a href="#" id="nav-close" title="Close Menu" aria-label="Close Menu" onchange="history.go(-1)"></a>
-			</div>
-			<a href="#nav-open" id="menu" aria-label="Open Menu" aria-expanded="false">
-				<svg viewBox="0 0 22 22" role="presentation" focusable="false">
-					<line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
-					<line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
-					<line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
-				</svg>
-			</a>
-		</header>
-		<main>
-			<div id="map"></div>
-			<script>
-				const map = L.map('map').setView([50.4501, 30.5234], 4);
-				const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-					maxZoom: 19,
-					attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-				}).addTo(map);
-				const marker = L.marker([50.4501, 30.5234], {alt: 'Kyiv'}).addTo(map);
-				marker.addEventListener('click', () => {
-					window.location.href = './detail/';
-				});
-			</script>
-		</main>
-	</div>
-</body>
+  <head>
+    <title>Healthsites.io</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="Canvas" />
+    <meta name="description" content="🙂" />
+    <meta name="view-transition" content="same-origin" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="/js/index.js" type="module"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+      type="module"
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+      type="module"
+    ></script>
+  </head>
+  <body>
+    <div class="fs">
+      <header role="banner">
+        <a href="/">
+          <picture>
+            <img src="/img/logo@2x.png" alt="" />
+          </picture>
+          <span>healthsites.io</span>
+        </a>
+        <div id="nav-open">
+          <nav>
+            <a
+              href="https://medium.com/healthsites-io"
+              rel="nofollow noopener noreferrer external"
+              target="_blank"
+              >Blog</a
+            >
+            <a href="#about">About</a>
+            <a href="/healthsites/map/" inert>Map</a>
+            <a href="#Country">Country data</a>
+            <a href="#How">How it works</a>
+            <!-- <a href="#Share">Share data</a> -->
+            <!-- <a href="#Partners">Partners</a> -->
+            <a
+              href="https://www.gofundme.com/f/senegalese-health-facility-data-collaborative"
+              rel="nofollow noopener noreferrer external"
+              target="_blank"
+              >Donate</a
+            >
+          </nav>
+          <a
+            href="#"
+            id="nav-close"
+            title="Close Menu"
+            aria-label="Close Menu"
+            onchange="history.go(-1)"
+          ></a>
+        </div>
+        <a
+          href="#nav-open"
+          id="menu"
+          aria-label="Open Menu"
+          aria-expanded="false"
+        >
+          <svg viewBox="0 0 22 22" role="presentation" focusable="false">
+            <line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+            <line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+            <line stroke="currentColor" x1="0" x2="100%" y1="50%" y2="50%" />
+          </svg>
+        </a>
+      </header>
+      <main>
+        <div id="map"></div>
+        <script>
+          const map = L.map('map').setView([50.4501, 30.5234], 4)
+          const tiles = L.tileLayer(
+            'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+              maxZoom: 19,
+              attribution:
+                '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            }
+          ).addTo(map)
+          const marker = L.marker([50.4501, 30.5234], { alt: 'Kyiv' }).addTo(
+            map
+          )
+          marker.addEventListener('click', () => {
+            window.location.href = './detail/'
+          })
+        </script>
+      </main>
+    </div>
+  </body>
 </html>
